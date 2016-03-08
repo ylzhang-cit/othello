@@ -3,6 +3,7 @@
 
 #include <bitset>
 #include "common.h"
+#include <vector>
 using namespace std;
 
 class Board {
@@ -20,15 +21,16 @@ public:
     Board();
     ~Board();
     Board *copy();
-        
     bool isDone();
-    bool hasMoves(Side side);
     bool checkMove(Move *m, Side side);
+    vector<int> validMoves(Side side);
+    bool hasMoves(Side side);
     void doMove(Move *m, Side side);
     int count(Side side);
     int countBlack();
     int countWhite();
-
+    int myget(Side side, int x, int y);
+    int score(Side side);
     void setBoard(char data[]);
 };
 
